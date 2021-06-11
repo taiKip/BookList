@@ -1,0 +1,19 @@
+.book{
+    list-style-type: none;
+    background: var(--secondary);
+ text-align: start;
+ padding:0 10px 5px 10px;
+ margin-bottom: 10px;
+ color: white;
+ border-radius: 3px;
+}
+.book h2{
+    margin: 0;
+    padding:0;
+}
+.book p{
+    margin: 0;
+}
+.book:hover{
+    text-decoration: line-through;
+}
