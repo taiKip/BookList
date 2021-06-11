@@ -1,5 +1,5 @@
 import classes from "./NewBookForm.module.css";
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { BookContext } from "../contexts/BookContext";
 
 const NawBookForm = () => {
@@ -7,19 +7,19 @@ const NawBookForm = () => {
   const [author, setAuthor] = useState("");
 
   //context
-  const {addBookHandler}=useContext(BookContext)
+  const { dispatch } = useContext(BookContext);
   const handleTitle = (event) => {
     setTitle(event.target.value);
   };
   const handleAuthor = (event) => {
     setAuthor(event.target.value);
   };
-  const handleSubmit=(event)=>{
-event.preventDefault();
-addBookHandler(title,author)
-setTitle('');
-setAuthor('');
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch({ type: "add-book", book: { title, author } });
+    setTitle("");
+    setAuthor("");
+  };
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <input

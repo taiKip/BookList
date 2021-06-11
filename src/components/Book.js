@@ -1,9 +1,11 @@
 import classes from './Book.module.css'
-import React from 'react'
+import React, { useContext } from 'react'
+import { BookContext } from '../contexts/BookContext'
 
 const Book = (props) => {
+    const {dispatch} = useContext(BookContext)
     const handleDelete=()=>{
-      props.deleteBook(props.id)
+      dispatch({type:'remove-book',id:props.id})
       
     }
     return (
